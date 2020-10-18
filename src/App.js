@@ -3,10 +3,15 @@ import logo from './logo.svg'
 import './App.css'
 import {
   Button, ButtonGroup, Checkbox, FormControlLabel,
-  TextField, makeStyles, ThemeProvider, createMuiTheme
+  TextField, makeStyles, ThemeProvider, createMuiTheme,
+  Typography
 } from '@material-ui/core'
 import { Save, Delete } from '@material-ui/icons'
 import { green, orange } from '@material-ui/core/colors'
+
+// The following will change the default font.
+// Installed with yarn add fontsource-roboto
+import 'fontsource-roboto'
 
 const useStyles = makeStyles({
   root: {
@@ -61,6 +66,12 @@ function App() {
     <div className='App'>
       <ThemeProvider theme={theme}>
         <header className='App-header'>
+          <Typography variant='h3'>
+            Welcome to material W3B
+          </Typography>
+          <Typography variant='subtitle1' component='div'>
+            Rich Dad Poor Dad
+          </Typography>
           <ButtonStyled />
           <TextField
             variant='filled'
