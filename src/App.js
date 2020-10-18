@@ -2,9 +2,11 @@ import React from 'react'
 import logo from './logo.svg'
 import './App.css'
 import {
-  Button, ButtonGroup, Checkbox, FormControlLabel, TextField, makeStyles, ButtonBase
+  Button, ButtonGroup, Checkbox, FormControlLabel,
+  TextField, makeStyles, ThemeProvider, createMuiTheme
 } from '@material-ui/core'
 import { Save, Delete } from '@material-ui/icons'
+import { green, orange } from '@material-ui/core/colors'
 
 const useStyles = makeStyles({
   root: {
@@ -15,6 +17,16 @@ const useStyles = makeStyles({
     padding: '5px 30px',
     marginBottom: 20
   }
+})
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: green[700]
+    },
+    secondary: {
+      main: orange[500]
+    }  }
 })
 
 function ButtonStyled() {
@@ -47,36 +59,38 @@ function CheckBoxExample() {
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <ButtonStyled />
-        <TextField
-          variant='filled'
-          color='primary'
-          type='email'
-          label='email'
-          placeholder='monkey@example.com'
-        /> {/* text color in App.css: input */}
-        <CheckBoxExample />
-        <ButtonGroup
-            variant='contained'
-            size='large'
-            style={{
-              fontSize: 21
-            }}
-        >
-        <Button
-            onClick={_ => {}}
-            startIcon={<Save />}
+      <ThemeProvider theme={theme}>
+        <header className='App-header'>
+          <ButtonStyled />
+          <TextField
+            variant='filled'
             color='primary'
-          >save</Button>
+            type='email'
+            label='email'
+            placeholder='monkey@example.com'
+          /> {/* text color in App.css: input */}
+          <CheckBoxExample />
+          <ButtonGroup
+              variant='contained'
+              size='large'
+              style={{
+                fontSize: 21
+              }}
+          >
           <Button
-            onClick={_ => {}}
-            startIcon={<Delete />}
-            color='primary'
-          >discard</Button>
-        </ButtonGroup>
-        <img src={logo} className='App-logo' alt='logo' />
-      </header>
+              onClick={_ => {}}
+              startIcon={<Save />}
+              color='primary'
+            >save</Button>
+            <Button
+              onClick={_ => {}}
+              startIcon={<Delete />}
+              color='secondary'
+            >discard</Button>
+          </ButtonGroup>
+          <img src={logo} className='App-logo' alt='logo' />
+        </header>
+      </ThemeProvider>
     </div>
   )
 }
