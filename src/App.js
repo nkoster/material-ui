@@ -25,6 +25,14 @@ const useStyles = makeStyles({
 })
 
 const theme = createMuiTheme({
+  typography: {
+    h3: {
+      fontSize: 26,
+      fontWeight: 'bold',
+      color: '#f44',
+      marginBottom: 10
+    }
+  },
   palette: {
     primary: {
       main: green[700]
@@ -99,7 +107,7 @@ function App() {
               color='secondary'
             >discard</Button>
           </ButtonGroup>
-          <img src={logo} className='App-logo' alt='logo' />
+          {/* <img src={logo} className='App-logo' alt='logo' /> */}
         </header>
       </ThemeProvider>
     </div>
